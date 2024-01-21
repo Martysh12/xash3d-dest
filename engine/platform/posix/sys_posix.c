@@ -68,7 +68,7 @@ static qboolean Sys_FindExecutable( const char *baseName, char *buf, size_t size
 	}
 	return false;
 }
-#endif
+#endif // !XASH_PS3
 
 #if !XASH_ANDROID && !XASH_NSWITCH && !XASH_PSVITA && !XASH_PS3
 void Platform_ShellExecute( const char *path, const char *parms )
@@ -94,7 +94,7 @@ void Platform_ShellExecute( const char *path, const char *parms )
 		Con_Reportf( S_WARN "Could not find "OPEN_COMMAND" utility\n" );
 	}
 }
-#endif // XASH_ANDROID
+#endif // !XASH_ANDROID && !XASH_NSWITCH && !XASH_PSVITA && !XASH_PS3
 
 void Posix_Daemonize( void )
 {
@@ -147,6 +147,7 @@ void Posix_Daemonize( void )
 	}
 
 }
+
 #if !XASH_PS3
 #if XASH_TIMER == TIMER_POSIX
 double Platform_DoubleTime( void )
@@ -169,7 +170,7 @@ double Platform_DoubleTime( void )
 	sys_time_get_current_time(&sec,&nsec);
 	return (double)sec + (double)nsec/1000000000.0;
 }
-#endif
+// #endif
 void Platform_Sleep( int msec )
 {
 	usleep( msec * 1000 );

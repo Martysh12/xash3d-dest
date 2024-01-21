@@ -2178,7 +2178,7 @@ static void Mod_LoadTextureData( model_t *mod, dbspmodel_t *bmod, int textureInd
 		else
 		{
 			char texName[256];
-			Q_snprintf(texName, sizeof(texName), "materials/%s.vmt", strlwr(m_name));
+			Q_snprintf(texName, sizeof(texName), "materials/%s.vmt", Q_strlwr(m_name));
 			texture->gl_texturenum = ref.dllFuncs.GL_LoadTexture(texName, NULL, 0, 0);
 		}
 	}

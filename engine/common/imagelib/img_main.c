@@ -318,7 +318,7 @@ rgbdata_t *FS_LoadImage( const char *filename, const byte *buffer, size_t size )
 		}
 		Q_strncpy(buf, vdf_object_get_string(texturekey), sizeof(buf));
 		COM_FixSlashes(buf);
-		Q_snprintf(loadname, sizeof(loadname),"materials/%s", strlwr(buf));
+		Q_snprintf(loadname, sizeof(loadname),"materials/%s", Q_strlwr(buf));
 		vdf_free_object(vmt);
 	}
 	//else if (Q_strcmp(ext, "pal") && Q_strcmp(filename,"gfx/palette.lmp"))

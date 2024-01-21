@@ -27,6 +27,19 @@
 
 #define FMT_UNKNOWN_CHAR "Encountered Unknown Character %c (%li)\n"
 
+int stricmp(const char *a, const char *b)
+{
+	int ca, cb;
+	do
+	{
+		ca = (unsigned char) *a++;
+		cb = (unsigned char) *b++;
+		ca = tolower(toupper(ca));
+		cb = tolower(toupper(cb));
+	} while (ca == cb && ca != '\0');
+	return ca - cb;
+}
+
 static char* local_strndup_escape(const char* s, size_t n)
 {
 	if (!s)

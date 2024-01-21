@@ -24,6 +24,19 @@ GNU General Public License for more details.
 #include "crtlib.h"
 #include "xash3d_mathlib.h"
 
+char *Q_strlwr(char *str)
+{
+	char *p = (char *)str;
+
+	while (*p)
+	{
+		*p = Q_tolower((char)*p);
+		p++;
+	}
+
+	return str;
+}
+
 void Q_strnlwr( const char *in, char *out, size_t size_out )
 {
 	if( size_out == 0 ) return;
